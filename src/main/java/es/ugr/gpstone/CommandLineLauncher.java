@@ -87,7 +87,7 @@ public class CommandLineLauncher {
 			//mt.testRandomMassPlay();	
 			CommandLineLauncher cll = new CommandLineLauncher();
 			long time = System.currentTimeMillis();
-			cll.launch(1, "Legendary GvG Ramp Druid", "Legendary GvG Ramp Druid","FlatMonteCarlo","PlayRandomBehaviour");
+			cll.launch(1, "Shadow Madness Priest Season 18", "Aggro Paladin Season 18","FlatMonteCarlo","PlayRandomBehaviour");
 
 		}catch(Exception ex){
 			ex.printStackTrace();

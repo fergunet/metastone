@@ -33,8 +33,17 @@ public class CardCollection implements Iterable<Card>, Cloneable {
 
 	public CardCollection clone() {
 		CardCollection clone = new CardCollection();
-		for (Card card : cards) {
-			clone.add(card.clone());
+		String previous = "";
+		for (Card card : cards) {			
+			try{
+				System.out.println("CARD "+card.toString());
+				clone.add(card.clone());
+				previous = card.toString();
+			}catch(Exception ex){
+				System.out.println("Exception reading card after "+previous);
+				ex.printStackTrace();
+				System.exit(-1);
+			}
 		}
 
 		return clone;
