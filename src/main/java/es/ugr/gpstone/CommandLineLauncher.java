@@ -83,11 +83,21 @@ public class CommandLineLauncher {
 
 		try{
 			//MassTest mt = new MassTest();
+			if(args.length != 5){
+				System.out.println("ERROR: 4 parameters are mandatory");
+			}
+				
 			new CardProxy();
+			String p1d = args[0];
+			String p2d = args[1];
+			String p1ia = args[2];
+			String p2ia = args[3];
+			int numG = Integer.parseInt(args[4]);
 			//mt.testRandomMassPlay();	
 			CommandLineLauncher cll = new CommandLineLauncher();
 			long time = System.currentTimeMillis();
-			cll.launch(1, "Shadow Madness Priest Season 18", "Aggro Paladin Season 18","FlatMonteCarlo","PlayRandomBehaviour");
+			System.out.println(p1d +" (" +p1ia +") VS "+ p2d +" ("+ p2ia+")" );
+			cll.launch(numG, p1d, p2d,p1ia,p2ia);
 
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -150,7 +160,7 @@ public class CommandLineLauncher {
 
 				result.calculateMetaStatistics();
 				long endtime = System.currentTimeMillis();
-				System.out.println("Simulation finished in "+(endtime - lastUpdate)+" millis.");
+				System.out.println("\nSimulation finished in "+(endtime - lastUpdate)+" millis.");
 				System.out.println("PLAYER "+gameConfig.getPlayerConfig1().getName());
 				System.out.println(result.getPlayer1Stats());
 				System.out.println("PLAYER "+gameConfig.getPlayerConfig2().getName());
@@ -192,19 +202,19 @@ public class CommandLineLauncher {
 		IBehaviour bev = null;
 		if(behaviour.compareTo("FlatMonteCarlo")== 0){
 			bev = new FlatMonteCarlo(1000);//= new PlayRandomBehaviour();
-			System.out.println("FlatMonteCarlo");
+			//System.out.println("FlatMonteCarlo");
 		}else if(behaviour.compareTo("GreedyOptimizeTurn")==0){
 			IGameStateHeuristic heuristic = new WeightedHeuristic();
 			bev = new GreedyOptimizeTurn(heuristic);
-			System.out.println("GreedyOptimizeTurn");
+			//System.out.println("GreedyOptimizeTurn");
 		}else if(behaviour.compareTo("GreedyOptimizeMove")==0){
 			IGameStateHeuristic heuristic = new WeightedHeuristic();
 			bev = new GreedyOptimizeMove(heuristic);
-			System.out.println("GreedyOptimizeMove");
+			//System.out.println("GreedyOptimizeMove");
 		}else if(behaviour.compareTo("PlayRandomBehaviour")==0){
 			
 			bev = new PlayRandomBehaviour();
-			System.out.println("PlayRandomBehaviour");
+			//System.out.println("PlayRandomBehaviour");
 	
 		}
 		
