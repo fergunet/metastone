@@ -32,5 +32,5 @@ for i in range(0,len(decks)):
 				params = "\""+deck1+"\" \""+deck2+"\" "+AI1+" "+AI2
 				filename = params.replace(" ", "_").replace("\"","")+".txt"
 				launchline = "("+java_bin+" "+params+" "+str(numberOfGames) +")>"+filename
-				#os.system(launchline)
+				os.system(launchline)
 				print launchline
