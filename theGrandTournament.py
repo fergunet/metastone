@@ -21,12 +21,16 @@ ais = ["FlatMonteCarlo",
 
 numberOfGames = 10
 
-for deck1 in decks:
-	for deck2 in decks:
-		for AI1 in ais:
-			for AI2 in ais:
+for i in range(0,len(decks)):
+	for j in range(i,len(decks)):
+		for k in range(0,len(ais)):
+			for l in range(k,len(ais)):
+				deck1 = decks[i]
+				deck2 = decks[j]
+				AI1 = ais[k]
+				AI2 = ais[l]
 				params = "\""+deck1+"\" \""+deck2+"\" "+AI1+" "+AI2
 				filename = params.replace(" ", "_").replace("\"","")+".txt"
 				launchline = "("+java_bin+" "+params+" "+str(numberOfGames) +")>"+filename
-				os.system(launchline)
+				#os.system(launchline)
 				print launchline
