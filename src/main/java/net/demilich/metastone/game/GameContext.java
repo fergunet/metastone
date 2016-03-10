@@ -142,7 +142,7 @@ public class GameContext implements Cloneable, IDisposable {
 	}
 
 	public void fireGameEvent(GameEvent gameEvent) {
-		System.out.println("GAME EVENT: "+gameEvent.getEventType()+" "+gameEvent.getEventSource()+"->"+gameEvent.getEventTarget()+" ");
+		//System.out.println("GAME EVENT: "+gameEvent.getEventType()+" "+gameEvent.getEventSource()+"->"+gameEvent.getEventTarget()+" ");
 		fireGameEvent(gameEvent, TriggerLayer.SECRET);
 		fireGameEvent(gameEvent, TriggerLayer.DEFAULT);
 	}
