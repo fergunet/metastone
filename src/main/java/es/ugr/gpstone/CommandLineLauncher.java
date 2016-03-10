@@ -70,6 +70,7 @@ public class CommandLineLauncher {
 	
 	private void onGameComplete(GameConfig gameConfig, GameContext context) {
 		long timeStamp = System.currentTimeMillis();
+		
 		gamesCompleted++;
 		synchronized (result) {
 			result.getPlayer1Stats().merge(context.getPlayer1().getStatistics());
