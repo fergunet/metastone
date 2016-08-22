@@ -101,7 +101,8 @@ public class GreedyOptimizeTurn extends Behaviour {
 		}
 
 		if (assignedGC != 0 && assignedGC != context.hashCode()) {
-			logger.warn("AI behaviour was used in another context!");
+			//WARNING!!!! I HAVE COMMENTED THIS!!!!! (Pablo)
+			//logger.warn("AI behaviour was used in another context!");
 		}
 
 		assignedGC = context.hashCode();
